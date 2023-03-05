@@ -137,8 +137,6 @@ der Spielfigur.
 Ich habe dieses Spiel selbstständig und nur mit den in [Quellen](#Quellen)
 angegebenen Hilfen erstellt.<br/>
 <br/>
-<br/>
-
 
 ---
 
