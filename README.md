@@ -17,6 +17,8 @@ die jeweilige Richtung zu bewegen. Zusätzlich wird die Leertaste verwendet, um
 bestimmte gesammelte Items zu aktivieren oder die Runde neu zu starten, wenn sie
 zu Ende ist.
 
+Die Main Klasse des Projekts ist `com.luka5w.crackfurtjump.CrackfurtJump`.
+
 
 ## Features
 
@@ -127,6 +129,7 @@ der Spielfigur.
   das [Bowser-Gesicht](https://duckduckgo.com/?q=bowser+icon) von Supermario/
   Nintendo.
 - Inspiration: Doodle Jump
+- Verwendete Java Version: JDK 19.0.2
 
 
 ## Erklärung
