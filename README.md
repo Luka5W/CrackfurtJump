@@ -1,6 +1,6 @@
 # CrackfurtJump
 
-_ein pädagogisch vollkommen wertvolles Spiel über Plattformen, Power-Ups,
+_Ein pädagogisch vollkommen wertvolles Spiel über Plattformen, Power-Ups,
 tödliche Drogen und Monster._
 
 
