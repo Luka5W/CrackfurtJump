@@ -31,8 +31,10 @@ public class CrackfurtJump extends Game {
 
   private static CrackfurtJump INSTANCE;
 
-  public static final int WIDTH = 384;
-  public static final int HEIGHT = 768;
+  public static final int WIDTH1 = 384;
+  public static final int WIDTH = 800;
+  public static final int HEIGHT1 = 768;
+  public static final int HEIGHT = 480;
   /**
    * The inverse duration of a {@link SwingScreen#TICK} in seconds.
    */

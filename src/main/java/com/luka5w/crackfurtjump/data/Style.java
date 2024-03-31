@@ -87,7 +87,7 @@ public class Style {
   /**
    * Color for the figure: Item: LSD (outline).
    */
-  public static final Color COLOR_ITEM_LSD_SECONDARY = Color.BLACK;
+  public static final Color COLOR_ITEM_LSD_SECONDARY = Color.GREEN;
 
   /**
    * Color for the figure: Item: Shield.
@@ -136,11 +136,6 @@ public class Style {
    * Hit box color for all object *visible* types: Item.
    */
   public static final Color COLOR_HITBOX_ITEM = Color.CYAN;
-
-  /**
-   * Hit box color for all *invisible* object types: Item
-   */
-  public static final Color COLOR_HITBOX_ITEM_HIDDEN = Color.BLUE;
 
   /**
    * Hit box color for all object types: Object.

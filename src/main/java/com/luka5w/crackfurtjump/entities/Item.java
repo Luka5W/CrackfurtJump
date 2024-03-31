@@ -229,8 +229,10 @@ public class Item extends GameObj {
     }
     // draw hit-boxes
     if (CrackfurtJump.isDevEnabled()) {
-      g.setColor(isDrawn ? Style.COLOR_HITBOX_ITEM : Style.COLOR_HITBOX_ITEM_HIDDEN);
-      super.paintTo(g);
+      if (isDrawn) {
+        g.setColor(Style.COLOR_HITBOX_ITEM);
+        super.paintTo(g);
+      }
     }
   }
 
