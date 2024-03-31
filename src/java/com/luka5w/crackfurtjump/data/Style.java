@@ -133,9 +133,14 @@ public class Style {
   public static final Color COLOR_HITBOX_LIVING_ENTITY = Color.CYAN;
 
   /**
-   * Hit box color for all object types: Item.
+   * Hit box color for all object *visible* types: Item.
    */
   public static final Color COLOR_HITBOX_ITEM = Color.CYAN;
+
+  /**
+   * Hit box color for all *invisible* object types: Item
+   */
+  public static final Color COLOR_HITBOX_ITEM_HIDDEN = Color.BLUE;
 
   /**
    * Hit box color for all object types: Object.

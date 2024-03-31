@@ -104,6 +104,7 @@ public class Item extends GameObj {
     // 1. in the inventory
     // 2. attached at the players back
     // 3. in the world
+    boolean isDrawn = false;
     switch (this.type) {
       case BAZOOKA:
         // when in inventory, the item can have a cooldown. check if it's active to display the
@@ -126,6 +127,7 @@ public class Item extends GameObj {
           // draw item: 1 || 3
           paintTo_drawBazooka30x30Front(g, x, y);
         }
+        isDrawn = true;
         break;
       case COIN:
         if (this.dummy || !this.areUsagesLeft()) {
@@ -140,12 +142,14 @@ public class Item extends GameObj {
             g.drawOval((int) this.pos.getX() + i, (int) this.pos.getY() + i,
                 (int) this.getWidth() - (2 * i), (int) this.getHeight() - (2 * i));
           }
+          isDrawn = true;
         }
         break;
       case HEROIN:
         if (this.dummy || !this.areUsagesLeft()) {
           paintTo_drawNeedle(g, (int) this.pos.getX(), (int) this.pos.getY(),
               Style.COLOR_ITEM_HEROIN_PRIMARY, Style.COLOR_ITEM_HEROIN_SECONDARY);
+          isDrawn = true;
         }
         break;
       case JETPACK:
@@ -173,6 +177,7 @@ public class Item extends GameObj {
           SwingUtils.drawFilledRoundRect(g, x - width, y, width, HEIGHT, arc);
           SwingUtils.drawFilledRoundRect(g, x, y, width, HEIGHT, arc);
         }
+        isDrawn = true;
         break;
       case LSD:
         if (this.dummy || !this.areUsagesLeft()) {
@@ -193,6 +198,7 @@ public class Item extends GameObj {
               (int) (this.getPos().getX() + this.getWidth() / 4D * 3D - this.getWidth() / 5D),
               (int) (this.getPos().getY() + (this.getHeight() / 4D)),
               (int) (this.getWidth() / 5D), (int) (this.getHeight() / 3D));
+          isDrawn = true;
         }
         break;
       case SHIELD:
@@ -210,10 +216,12 @@ public class Item extends GameObj {
           g.draw(new Ellipse2D.Double(x, y, this.getWidth(), this.getHeight()));
           g.draw(new Ellipse2D.Double(x + 1, y + 1, this.getWidth() - 2, this.getHeight() - 2));
         }
+        isDrawn = true;
         break;
       case WEED:
         if (this.dummy || !this.areUsagesLeft()) {
           paintTo_drawWeed(g, (int) this.pos.getX(), (int) this.pos.getY());
+          isDrawn = true;
         }
         break;
       default:
@@ -221,7 +229,7 @@ public class Item extends GameObj {
     }
     // draw hit-boxes
     if (CrackfurtJump.isDevEnabled()) {
-      g.setColor(Style.COLOR_HITBOX_ITEM);
+      g.setColor(isDrawn ? Style.COLOR_HITBOX_ITEM : Style.COLOR_HITBOX_ITEM_HIDDEN);
       super.paintTo(g);
     }
   }

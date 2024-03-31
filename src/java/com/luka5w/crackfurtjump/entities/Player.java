@@ -6,12 +6,13 @@ import com.luka5w.crackfurtjump.entities.Item.Type;
 import com.luka5w.crackfurtjump.math.Vertex;
 import com.luka5w.crackfurtjump.objects.Platform;
 import com.luka5w.crackfurtjump.util.GameEndedException;
-import com.luka5w.util.TriConsumer;
 import com.luka5w.swinggame.obj.GameObj;
+import com.luka5w.util.TriConsumer;
 import com.luka5w.util.VoidConsumer;
 import java.awt.Graphics2D;
 import java.awt.Shape;
 import java.awt.geom.RoundRectangle2D;
+import java.util.HashSet;
 import java.util.List;
 import java.util.function.BiConsumer;
 
@@ -53,6 +54,11 @@ public class Player extends LivingEntity {
    * The player's inventory.
    */
   private final Item[] items;
+
+  /**
+   * Currently active effects.
+   */
+  private final HashSet<Item.Type> effects;
 
   /**
    * The current players' direction.
@@ -101,6 +107,7 @@ public class Player extends LivingEntity {
     for (int i = 0; i < this.items.length; i++) {
       this.items[i] = new Item(this.pos, Type.values()[i]);
     }
+    this.effects = new HashSet<>();
     this.direction = Direction.NONE;
     this.actionPressed = false;
     this.killEnemyWithBazooka = false;
@@ -308,6 +315,15 @@ public class Player extends LivingEntity {
               changed = true;
             }
             break;
+          case HEROIN:
+          case LSD:
+          case WEED:
+            if (item.use()) {
+              if (this.effects.add(item.type)) {
+                changed = true;
+              }
+            }
+            break;
           case JETPACK:
             if (item.use()) {
               this.usingJetpack = true;
@@ -323,6 +339,15 @@ public class Player extends LivingEntity {
         }
       } else {
         switch (item.type) {
+          case HEROIN:
+          case LSD:
+          case WEED:
+            if (item.use()) {
+              if (this.effects.remove(item.type)) {
+                changed = true;
+              }
+            }
+            break;
           case JETPACK:
             if (this.usingJetpack) {
               this.usingJetpack = false;
@@ -343,6 +368,20 @@ public class Player extends LivingEntity {
    */
   public boolean isUsingJetpack() {
     return this.usingJetpack;
+  }
+
+  /**
+   * Returns whether the player is currently affected by the passed effect.
+   * <br/>
+   * Valid effects are:
+   * - {@link Item.Type#HEROIN}
+   * - {@link Item.Type#LSD}
+   * - {@link Item.Type#WEED}
+   * @param type The effect type
+   * @return whether the player is currently affected by the passed effect
+   */
+  public boolean hasEffect(Item.Type type) {
+    return this.effects.contains(type);
   }
 
   /**
