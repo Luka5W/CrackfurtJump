@@ -4,6 +4,28 @@ _Ein pädagogisch vollkommen wertvolles Spiel über Plattformen, Power-Ups,
 tödliche Drogen und Monster._
 
 
+## Installation
+
+1. install java v≥19
+2. clone this repository
+3. init repository
+4. execute classes
+   - with `./gradlew main[Dev]`
+   - OR compile with `./gradlew jar`
+   - and execute with (e.g.) `/usr/lib/jvm/openjdk-19/bin/java -jar ./build/libs/crackfurtjump-1.1.0.jar [--dev]`
+
+
+### Configuration
+
+#### Window size
+
+Edit constants [com.luka5w.crackfurtjump.CrackfurtJump#WIDTH, com.luka5w.crackfurtjump.CrackfurtJump#HEIGHT](./src/main/java/com/luka5w/crackfurtjump/CrackfurtJump.java)
+
+#### Gradle Tasks
+
+- run: Run with no arguments
+- runDev: Run with `--dev` arguments (cheats)
+
 ## Konzept
 
 Ziel ist es, mithilfe der Plattformen immer weiter nach oben zu springen und
