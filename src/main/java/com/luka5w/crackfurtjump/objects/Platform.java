@@ -64,7 +64,7 @@ public class Platform extends Obj {
       double y = this.calcSpeed.getAsDouble();
       if (y != 0) {
         this.pos.add(new Vertex(0, y));
-        if (this.slot != null && (!(this.slot instanceof Enemy enemy) || enemy.isAlive())) {
+        if ((this.slot != null) && (!(this.slot instanceof Enemy) || ((Enemy) this.slot).isAlive())) {
           this.slot.getPos().add(new Vertex(0, y));
         }
         changed = true;

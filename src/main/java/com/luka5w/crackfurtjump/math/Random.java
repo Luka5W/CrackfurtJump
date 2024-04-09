@@ -1,7 +1,5 @@
 package com.luka5w.crackfurtjump.math;
 
-import java.util.random.RandomGenerator;
-
 /**
  * Utility class to get some random variables.
  */
@@ -10,8 +8,8 @@ public class Random {
   /**
    * The random object to retrieve the variables from.
    */
-  private static final java.util.Random RANDOM =
-      java.util.Random.from(RandomGenerator.getDefault());
+  private static final java.util.Random RANDOM = new java.util.Random();
+  //java.util.Random.from(RandomGenerator.getDefault());
 
   /**
    * Returns a random boolean.
@@ -37,22 +35,22 @@ public class Random {
   }
 
   /**
-   * See {@link java.util.Random#nextDouble(double, double)}
+   * See {@link #getNextInt(int, int)}
    * @param origin
    * @param bound
    * @return
    */
   public static double getNextDouble(double origin, double bound) {
-    return RANDOM.nextDouble(origin, bound);
+    return origin + (bound - origin) * RANDOM.nextDouble();
   }
 
   /**
-   * See {@link java.util.Random#nextInt(int, int)}
+   * See {@link java.util.Random#nextInt(int)}
    * @param origin
    * @param bound
    * @return
    */
   public static int getNextInt(int origin, int bound) {
-    return RANDOM.nextInt(origin, bound);
+    return origin + RANDOM.nextInt(bound - origin);
   }
 }

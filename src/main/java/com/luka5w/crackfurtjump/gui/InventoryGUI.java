@@ -60,11 +60,17 @@ public class InventoryGUI extends GUIObj {
     for (int i = 0; i < this.items.length; i++) {
       if (this.items[i].areUsagesLeft()) {
         itemCount++;
-        itemAmounts[i] = switch (Type.values()[i].unit) {
-          case USES -> this.items[i].getDurability() + DurabilityUnit.USES.asString();
-          case TICKS -> ((int) (this.items[i].getDurability() / CrackfurtJump.TICK_TIME))
-              + DurabilityUnit.TICKS.asString();
-        };
+        switch (Type.values()[i].unit) {
+          case USES:
+            itemAmounts[i] = this.items[i].getDurability() + DurabilityUnit.USES.asString();
+            break;
+          case TICKS:
+            itemAmounts[i] = ((int) (this.items[i].getDurability() / CrackfurtJump.TICK_TIME))
+                  + DurabilityUnit.TICKS.asString();
+            break;
+          default:
+            throw new IllegalStateException("unknown DurabilityUnit: " + Type.values()[i].unit);
+        }
         int width = SwingUtils.getStringBounds(g, itemAmounts[i]).width;
         if (width > longestStringsWidth) {
           longestStringsWidth = width;

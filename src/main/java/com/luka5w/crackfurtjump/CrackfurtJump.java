@@ -106,11 +106,17 @@ public class CrackfurtJump extends Game {
   public boolean tick(List<Integer> pressedKeys) {
     if (this.dev) {
       for (int key : pressedKeys) {
-        this.summonOverride = switch (key) {
-          case KeyBindings.CHEAT_SUMMON_ITEM -> EnumSummonObject.ITEM;
-          case KeyBindings.CHEAT_SUMMON_ENEMY -> EnumSummonObject.ENEMY;
-          default -> EnumSummonObject.NONE;
-        };
+          switch (key) {
+              case KeyBindings.CHEAT_SUMMON_ITEM:
+                  this.summonOverride = EnumSummonObject.ITEM;
+                  break;
+              case KeyBindings.CHEAT_SUMMON_ENEMY:
+                  this.summonOverride = EnumSummonObject.ENEMY;
+                  break;
+              default:
+                  this.summonOverride = EnumSummonObject.NONE;
+                  break;
+          }
       }
     }
     if (this.running) {

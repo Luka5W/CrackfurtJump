@@ -54,10 +54,10 @@ public class Projectile extends Obj {
    */
   public boolean hasReachedDst() {
     if (this.touches(this.dst)) {
-      if (this.dst instanceof Enemy e) {
-        e.decreaseHearts(true);
-      } else if (this.dst instanceof LivingEntity e) {
-        e.decreaseHearts();
+      if (this.dst instanceof Enemy) {
+        ((Enemy) this.dst).decreaseHearts(true);
+      } else if (this.dst instanceof LivingEntity) {
+        ((LivingEntity) this.dst).decreaseHearts();
       }
       if (callback != null) {
         callback.apply();

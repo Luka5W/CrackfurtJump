@@ -236,8 +236,9 @@ public class Player extends LivingEntity {
       throws GameEndedException {
     boolean changed = false;
     GameObj slot = platform.getSlot();
-    if (slot instanceof Enemy enemy) {
-      if (enemy.isAlive()) {
+    if (slot instanceof Enemy) {
+        Enemy enemy = (Enemy) slot;
+        if (enemy.isAlive()) {
         // when selecting an enemy, it has to be visible and above player and a distance of >= 100px
         if (this.killEnemyWithBazooka
             && enemy.getPos().getY() > 0 - Enemy.HEIGHT
@@ -263,8 +264,9 @@ public class Player extends LivingEntity {
           throw new GameEndedException(changed);
         }
       }
-    } else if (slot instanceof Item item) {
-      if (this.touches(item) && !(this.isUsingJetpack() && item.type == Type.JETPACK)) {
+    } else if (slot instanceof Item) {
+        Item item = (Item) slot;
+        if (this.touches(item) && !(this.isUsingJetpack() && item.type == Type.JETPACK)) {
         this.items[item.type.ordinal()].incrementDurability();
         platform.clearSlot();
         changed = true;
@@ -284,13 +286,17 @@ public class Player extends LivingEntity {
     this.direction = Direction.NONE;
     this.actionPressed = false;
     for (int key : pressedKeys) {
-      switch (key) {
-        case KeyBindings.CTRL_MOVE_LEFT ->
-            this.direction = this.direction == Direction.NONE ? Direction.LEFT : Direction.NONE;
-        case KeyBindings.CTRL_MOVE_RIGHT ->
-            this.direction = this.direction == Direction.NONE ? Direction.RIGHT : Direction.NONE;
-        case KeyBindings.CTRL_ACTION -> this.actionPressed = true;
-      }
+        switch (key) {
+            case KeyBindings.CTRL_MOVE_LEFT:
+                this.direction = this.direction == Direction.NONE ? Direction.LEFT : Direction.NONE;
+                break;
+            case KeyBindings.CTRL_MOVE_RIGHT:
+                this.direction = this.direction == Direction.NONE ? Direction.RIGHT : Direction.NONE;
+                break;
+            case KeyBindings.CTRL_ACTION:
+                this.actionPressed = true;
+                break;
+        }
     }
     return false;
   }

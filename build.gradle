@@ -5,9 +5,9 @@ plugins {
 group = 'com.luka5w'
 version = '1.1.0'
 
-sourceCompatibility = 19
-targetCompatibility = 19
-ext.javaMainClass = group + '.' + rootProject.name + '.CrackfurtJump'
+sourceCompatibility = 11
+targetCompatibility = 11
+ext.javaMainClass = String.join('.', group, rootProject.name, 'CrackfurtJump')
 
 repositories {
     mavenCentral()

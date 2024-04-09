@@ -68,7 +68,7 @@ public class HighscoreHandler {
       StringBuilder sb = new StringBuilder();
       int c;
       while ((c = reader.read()) != -1) {
-        if (c == SCORE_SEPARATOR && !sb.isEmpty()) {
+        if (c == SCORE_SEPARATOR && sb.length() != 0) {
           highScores.add(Long.valueOf(sb.toString()));
           sb = new StringBuilder();
         } else {

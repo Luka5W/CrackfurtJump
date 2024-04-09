@@ -37,9 +37,9 @@ public abstract class Game implements IGameLogic {
     boolean screenUpdated = false;
     for (ArrayList<? extends IGameObj> objects : this.objects) {
       for (IGameObj object : objects) {
-        if (object instanceof ITickingGameObj tickingGameObject) {
-          try {
-            if (tickingGameObject.tick(pressedKeys)) {
+        if (object instanceof ITickingGameObj) {
+            try {
+            if (((ITickingGameObj) object).tick(pressedKeys)) {
               screenUpdated = true;
             }
           } catch (GameEndedException e) {
