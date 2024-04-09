@@ -31,20 +31,31 @@ public class CrackfurtJump extends Game {
 
   private static CrackfurtJump INSTANCE;
 
-  public static final int WIDTH1 = 384;
-  public static final int WIDTH = 800;
-  public static final int HEIGHT1 = 768;
-  public static final int HEIGHT = 480;
+  /**
+   * Window size.
+   * <br>
+   * When this value is changed, consider changing {@link #HEIGHT}, {@link #SCROLL_SPEED} and {@link #METER}.
+   */
+  public static final int WIDTH = 384;/**
+   * Window size.
+   * <br>
+   * When this value is changed, consider changing {@link #WIDTH}, {@link #SCROLL_SPEED} and {@link #METER}.
+   */
+  public static final int HEIGHT = 768;
   /**
    * The inverse duration of a {@link SwingScreen#TICK} in seconds.
    */
   public static final double TICK_TIME = 1000D / SwingScreen.TICK;
   /**
    * The default scroll speed.
+   * <br>
+   * When this value is changed, consider changing {@link #WIDTH}/{@link #HEIGHT} and {@link #METER}.
    */
   private static final double SCROLL_SPEED = 0.5;
   /**
    * The factor of px to meters; 100px = 1m.
+   * <br>
+   * When this value is changed, consider changing {@link #WIDTH}/{@link #HEIGHT} and {@link #SCROLL_SPEED}.
    */
   private static final double METER = 100;
   /**

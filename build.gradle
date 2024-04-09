@@ -21,13 +21,15 @@ dependencies {
 
 }
 
-task(main, dependsOn: 'classes', type: JavaExec) {
+tasks.register('main', JavaExec) {
+    dependsOn 'classes'
     group = 'run'
     mainClass = javaMainClass
     classpath = sourceSets.main.runtimeClasspath
 }
 
-task(mainDev, dependsOn: 'classes', type: JavaExec) {
+tasks.register('mainDev', JavaExec) {
+    dependsOn 'classes'
     group = 'run'
     mainClass = javaMainClass
     classpath = sourceSets.main.runtimeClasspath

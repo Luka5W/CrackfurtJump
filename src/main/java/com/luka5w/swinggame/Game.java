@@ -115,6 +115,7 @@ public abstract class Game implements IGameLogic {
   }
 
   protected void addEnvironment(IGameObj o) {
+    //noinspection unchecked
     ((ArrayList<IGameObj>) this.objects.get(0)).add(o);
   }
 
@@ -130,6 +131,7 @@ public abstract class Game implements IGameLogic {
 
   protected void addEntity(int layer, IGameObj o) {
     checkLayer(layer);
+    //noinspection unchecked
     ((ArrayList<IGameObj>) this.objects.get(layer)).add(o);
   }
 
