@@ -37,6 +37,10 @@ public class Player extends LivingEntity {
    * The half height of the window.
    */
   private final int winHalfHeight;
+  /**
+   * The position of the player when using the jetpack..
+   */
+  private final int flyPos;
 
   /**
    * Consumer to update the GUI which displays the player's current height.
@@ -99,6 +103,7 @@ public class Player extends LivingEntity {
     this.winWidth = winWidth;
     this.winHeight = winHeight;
     this.winHalfHeight = (int) Math.ceil(this.winHeight / 2D);
+    this.flyPos = (int) Math.ceil(this.winHeight -2 * this.getHeight());
     this.updateStatsGUI = updateStatsGUI;
     this.createProjectile = createProjectile;
     this.jump.start();
@@ -149,9 +154,14 @@ public class Player extends LivingEntity {
     if (this.isAlive()) {
       // override jump when using jetpack
       if (this.usingJetpack) {
-        v = this.getPos().getY() == this.winHalfHeight
+        // difference between player and flying pos.
+        double distance = this.flyPos - this.getPos().getY();
+        double absDistance = Math.abs(distance);
+        // when player is near the flying pos: don't move vertically.
+        // otherwise, move in a thoroughly selected speed (at most 420% or 42/10) to the flying pos.
+        v = absDistance < 1.0
             ? 0
-            : this.isAbove(this.winHalfHeight) ? 1 : -1;
+            : Math.signum(distance) * Math.min(absDistance, 4.2);
         this.updateStatsGUI.accept(this.getPos().getY(), this.kills);
       }
       // jump & objects logic
@@ -357,7 +367,7 @@ public class Player extends LivingEntity {
           case JETPACK:
             if (this.usingJetpack) {
               this.usingJetpack = false;
-              this.jump.start(-1);
+              this.jump.start(-6); // this boost should be enough to get in the upper half of the screen. hopefully.
               changed = true;
             }
             break;
