@@ -148,7 +148,7 @@ public class Player extends LivingEntity {
     double v = this.jump.move();
     if (this.isAlive()) {
       // override jump when using jetpack
-      if (this.usingJetpack) {
+      if (this.isUsingJetpack()) {
         // difference between player and flying pos.
         double distance = this.flyPos - this.getPos().getY();
         double absDistance = Math.abs(distance);
@@ -170,7 +170,7 @@ public class Player extends LivingEntity {
     }
     // apply movement
     if (!(this.direction == Direction.NONE && v == 0)) {
-      this.pos.add(new Vertex(this.direction.getValue() * (this.isAlive() ? 3 : 1), v));
+      this.pos.add(new Vertex(this.direction.getValue() * (this.isAlive() ? 2.1 : 1) * (this.isUsingJetpack() ? 2 : 1), v));
       changed = true;
     }
     // handle current item(s)
