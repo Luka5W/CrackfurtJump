@@ -34,11 +34,7 @@ public class Player extends LivingEntity {
    */
   private final int winHeight;
   /**
-   * The half height of the window.
-   */
-  private final int winHalfHeight;
-  /**
-   * The position of the player when using the jetpack..
+   * The position of the player when using the jetpack.
    */
   private final int flyPos;
 
@@ -102,7 +98,6 @@ public class Player extends LivingEntity {
     super(pos, WIDTH, HEIGHT, 1);
     this.winWidth = winWidth;
     this.winHeight = winHeight;
-    this.winHalfHeight = (int) Math.ceil(this.winHeight / 2D);
     this.flyPos = (int) Math.ceil(this.winHeight -2 * this.getHeight());
     this.updateStatsGUI = updateStatsGUI;
     this.createProjectile = createProjectile;
