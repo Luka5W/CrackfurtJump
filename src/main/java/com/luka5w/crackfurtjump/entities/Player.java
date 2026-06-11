@@ -170,7 +170,7 @@ public class Player extends LivingEntity {
     }
     // apply movement
     if (!(this.direction == Direction.NONE && v == 0)) {
-      this.pos.add(new Vertex(this.direction.getValue() * (this.isAlive() ? 2 : 1), v));
+      this.pos.add(new Vertex(this.direction.getValue() * (this.isAlive() ? 3 : 1), v));
       changed = true;
     }
     // handle current item(s)
