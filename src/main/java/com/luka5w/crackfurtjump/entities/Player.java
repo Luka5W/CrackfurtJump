@@ -362,7 +362,7 @@ public class Player extends LivingEntity {
           case JETPACK:
             if (this.usingJetpack) {
               this.usingJetpack = false;
-              this.jump.start(-6); // this boost should be enough to get in the upper half of the screen. hopefully.
+              this.jump.start(this.isAlive() ? -6 : -1); // this boost should be enough to get in the upper half of the screen. hopefully.
               changed = true;
             }
             break;
