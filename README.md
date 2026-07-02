@@ -75,11 +75,11 @@ Auch können Items in Plattform-Slots spawnen. Hier beträgt die Chance ebenfall
 | Coin    | Sammeln           | Eine Münze ohne Sinn oder Funktion, die schlicht gesammelt werden kann.                                                                                        |
 | Heroin  | Automatisch (10s) | Eine Droge, dessen Wirkung noch nicht implementiert ist.                                                                                                       |
 | Jetpack | Automatisch (10s) | Ein Power-Up, mithilfe dessen man für 10 Sekunden nach oben fliegt.                                                                                            |
-| LSD     | Automatisch (10s) | Eine Droge, dessen Wirkung noch nicht implementiert ist.                                                                                                       |
+| LSD     | Automatisch (10s) | Eine Droge mit der Wirkung, den Hintergrund zufällig zu ändern.                                                                                                |
 | SHIELD  | Automatisch (10s) | Ein Power-Up, mithilfe dessen man für 10 Sekunden nicht durch Monster sterben kann.                                                                            |
 | WEED    | Automatisch (10s) | Eine Droge, dessen Wirkung noch nicht implementiert ist.                                                                                                       |
 
-Noch sind die Drogen nicht implementiert. Angedacht sind, dass sie das Sichtfeld
+Noch sind die Drogen nicht vollständig implementiert. Angedacht sind, dass sie das Sichtfeld
 oder die Mobilität der Spielfigur beeinträchtigen und bei einer Überdosis (einer
 zu langen Wirkdauer) das Spiel beendet ist.
 
