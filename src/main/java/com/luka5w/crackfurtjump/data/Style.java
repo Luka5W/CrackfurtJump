@@ -103,7 +103,7 @@ public class Style {
    * Color for the figure: Enemy (body).
    */
   public static Color getRandomEnemyColor() {
-    return new Color(Random.getNextInt(0, 255),Random.getNextInt(0, 255), Random.getNextInt(0, 255));
+    return getRandomColor();
     //return COLOR_ENEMY_BODY[Random.getNextInt(0, COLOR_ENEMY_BODY.length)];
   }
 
@@ -128,6 +128,13 @@ public class Style {
   public static final Color COLOR_BACKGROUND = new Color(253, 235, 141);
 
   /**
+   * Color for the background when player has effect LSD.
+   */
+  public static Color getRandomBackgroundColor() {
+    return getRandomColor();
+  }
+
+  /**
    * Hit box color for all object types: Living Entity.
    */
   public static final Color COLOR_HITBOX_LIVING_ENTITY = Color.CYAN;
@@ -141,4 +148,11 @@ public class Style {
    * Hit box color for all object types: Object.
    */
   public static final Color COLOR_HITBOX_OBJECT = Color.CYAN;
+
+  /**
+   * Returns color with each RGB value randomized.
+   */
+  public static Color getRandomColor() {
+    return new Color(Random.getNextInt(0, 255),Random.getNextInt(0, 255), Random.getNextInt(0, 255));
+  }
 }

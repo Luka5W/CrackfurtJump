@@ -63,6 +63,10 @@ public class CrackfurtJump extends Game {
    */
   private final boolean dev;
   /**
+   * The Background.
+   */
+  private Background background;
+  /**
    * All platforms.
    */
   private ArrayList<Platform> platforms;
@@ -134,6 +138,7 @@ public class CrackfurtJump extends Game {
       boolean changed = super.tick(pressedKeys);
       this.relativeHeight += this.getSpeed();
       this.projectiles.removeIf(Projectile::hasReachedDst);
+      this.background.setRandomBackground(this.player.hasEffect(Item.Type.LSD));
       return changed;
     } else {
       if (pressedKeys.contains(KeyEvent.VK_SPACE)) {
@@ -154,7 +159,8 @@ public class CrackfurtJump extends Game {
     this.summonOverride = EnumSummonObject.NONE;
     HighscoreHandler.load();
     // setup background
-    this.setBackground(new Background(new Vertex(0, 0)));
+    this.background = new Background(new Vertex(0, 0));
+    this.setBackground(this.background);
     // setup environment
     this.platforms = new ArrayList<>();
     this.spreadPlatforms(10, new Vertex((WIDTH >> 1) - Platform.WIDTH / 2, HEIGHT - 100));
