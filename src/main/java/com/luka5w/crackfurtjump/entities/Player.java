@@ -353,10 +353,8 @@ public class Player extends LivingEntity {
           case HEROIN:
           case LSD:
           case WEED:
-            if (item.use()) {
-              if (this.effects.remove(item.type)) {
-                changed = true;
-              }
+            if (this.effects.remove(item.type)) {
+              changed = true;
             }
             break;
           case JETPACK:
