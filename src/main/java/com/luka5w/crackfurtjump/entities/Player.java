@@ -244,11 +244,14 @@ public class Player extends LivingEntity {
     if (slot instanceof Enemy) {
         Enemy enemy = (Enemy) slot;
         if (enemy.isAlive()) {
-        // when selecting an enemy, it has to be visible and above player and a distance of >= 100px
+        // when selecting an enemy, it has to be visible and above player
+        // TODO 2026-07-04:
+        //  and a distance of >= 100px.
+        //  this is bullshit. maybe the intention was, that the projectile might be slower than the player. needs testing.
         if (this.killEnemyWithBazooka
             && enemy.getPos().getY() > 0 - Enemy.HEIGHT
             && enemy.getPos().getY() < this.pos.getY()
-            && this.pos.distance(enemy.getPos()) > 100) {
+            /* && this.pos.distance(enemy.getPos()) > 100 */) {
           this.killEnemyWithBazooka = false;
           this.createProjectile.accept(this, enemy, () -> {
             this.kills++;
