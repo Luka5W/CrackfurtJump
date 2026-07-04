@@ -39,12 +39,9 @@ public class Background extends GameObj {
   public boolean tick(List<Integer> pressedKeys) throws GameEndedException {
     // TODO: 18.02.23 scrolling background
     if (this.colorTick != -1) {
-      if (this.colorTick % 42 == 0) {
-        this.color = Style.getRandomBackgroundColor();
-      }
-      this.colorTick++;
-      if (this.colorTick > 42) {
+      if (this.colorTick++ >= CrackfurtJump.TICK_TIME) {
         this.colorTick = 0;
+        this.color = Style.getRandomBackgroundColor();
       }
     }
     return super.tick(pressedKeys);
