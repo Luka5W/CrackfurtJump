@@ -77,7 +77,7 @@ public class Player extends LivingEntity {
   private boolean actionPressed;
 
   /**
-   * Whether an enemy should be killed with the bazooka but is not yet handled.
+   * If an enemy is nearby, initiate the creation of a projectile to shoot an enemy.
    */
   private boolean killEnemyWithBazooka;
   private boolean usingJetpack;
