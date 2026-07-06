@@ -35,9 +35,9 @@ public class Random {
   }
 
   /**
-   * See {@link #getNextInt(int, int)}
-   * @param origin
-   * @param bound
+   * See {@link java.util.Random#nextDouble(double, double)}
+   * @param origin minimum value
+   * @param bound maximum value
    * @return
    */
   public static double getNextDouble(double origin, double bound) {
@@ -45,9 +45,20 @@ public class Random {
   }
 
   /**
+
+   * See {@link java.util.Random#nextGaussian()}
+   * @param origin minimum value
+   * @param bound maximum value
+   * @return
+   */
+  public static double getNextGaussianDouble(double origin, double bound) {
+    return origin + (bound - origin) * Math.abs(RANDOM.nextGaussian());
+  }
+
+  /**
    * See {@link java.util.Random#nextInt(int)}
-   * @param origin
-   * @param bound
+   * @param origin minimum value
+   * @param bound maximum value
    * @return
    */
   public static int getNextInt(int origin, int bound) {

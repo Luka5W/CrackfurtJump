@@ -73,6 +73,9 @@ public class Platform extends Obj {
         changed |= this.slot.tick(pressedKeys);
       }
     } else {
+      // recycle platform at new position: random x, random y between -HEIGHT and -HEIGHT-20
+      // this means that the initial starting positions of the platforms needs to be carefully
+      // choosen because it varies only in the range 0, 20.
       this.getPos().setX(Random.getNextDouble(5, CrackfurtJump.WIDTH - WIDTH - 5));
       this.getPos().setY(-Random.getNextDouble(HEIGHT, HEIGHT + 20));
       EnumSummonObject sso = this.shouldSummonObject.get();

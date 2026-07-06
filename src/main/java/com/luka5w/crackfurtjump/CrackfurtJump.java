@@ -163,7 +163,7 @@ public class CrackfurtJump extends Game {
     this.setBackground(this.background);
     // setup environment
     this.platforms = new ArrayList<>();
-    this.spreadPlatforms(10, new Vertex((WIDTH >> 1) - Platform.WIDTH / 2, HEIGHT - 100));
+    this.spreadPlatforms(12, new Vertex((WIDTH >> 1) - Platform.WIDTH / 2, HEIGHT - 100));
     ArrayList<GameObj> environment = createHighScoreMarkers();
     environment.addAll(this.platforms);
     this.setEnvironment(environment);
@@ -215,14 +215,14 @@ public class CrackfurtJump extends Game {
   /**
    * Spreads all platforms over the current visible world.
    *
-   * @param platforms The list to add the platforms to
+   * @param platforms The amount of platforms to add
    * @param pos       The position of the 1st platform
    */
   private void spreadPlatforms(int platforms, Vertex pos) {
-    this.platforms.add(new Platform(pos, this::getSpeed, this::shouldSummonObject));
-    if (platforms >= 0) {
+    if (platforms > 0) {
+      this.platforms.add(new Platform(pos, this::getSpeed, this::shouldSummonObject));
       Vertex newPos = new Vertex(Random.getNextDouble(5, WIDTH - Platform.WIDTH - 5),
-          pos.getY() - Random.getNextDouble(Platform.HEIGHT, 120));
+          pos.getY() - Random.getNextDouble(50, 150));
       spreadPlatforms(platforms - 1, newPos);
     }
   }
