@@ -118,6 +118,15 @@ public class CrackfurtJump extends Game {
   }
 
   @Override
+  public int getDevHeight() {
+    return this.dev ? 2 * this.getHeight() : this.getHeight();
+  }
+  @Override
+  public int getDevHeightOffset() {
+    return this.dev ? this.getHeight() / 2 : 0;
+  }
+
+  @Override
   public boolean tick(List<Integer> pressedKeys) {
     if (this.dev) {
       this.summonOverride = EnumSummonObject.NONE;

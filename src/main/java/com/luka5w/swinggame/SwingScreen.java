@@ -66,11 +66,15 @@ public class SwingScreen extends JPanel {
 
   @Override
   public Dimension getPreferredSize() {
-    return new Dimension(this.logic.getWidth(), this.logic.getHeight());
+    //return new Dimension(this.logic.getWidth(), this.logic.getHeight());
+    // TODO dev only: double height
+    return new Dimension(this.logic.getDevWidth(), this.logic.getDevHeight());
   }
 
   @Override
   protected void paintComponent(Graphics g) {
+    // TODO dev only: double height
+    g.translate(this.logic.getDevWidthOffset(), this.logic.getDevHeightOffset());
     super.paintComponent(g);
     Graphics2D g2 = (Graphics2D) g;
     g2.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);

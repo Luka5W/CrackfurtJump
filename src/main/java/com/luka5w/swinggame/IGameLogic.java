@@ -27,6 +27,19 @@ public interface IGameLogic {
    */
   int getHeight();
 
+  default int getDevWidth() {
+    return getWidth();
+  }
+  default int getDevHeight() {
+    return getHeight();
+  }
+  default int getDevWidthOffset() {
+    return 0;
+  }
+  default int getDevHeightOffset() {
+    return 0;
+  }
+
   /**
    * Paints all components to the graphics object.
    *
