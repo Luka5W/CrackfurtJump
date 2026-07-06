@@ -12,7 +12,7 @@ import org.jetbrains.annotations.Nullable;
 
 public class Projectile extends Obj {
 
-  private static final double SPEED = 5;
+  private static final double SPEED = 10;
 
   private final GameObj dst;
   @Nullable
